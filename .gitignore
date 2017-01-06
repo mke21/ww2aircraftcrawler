@@ -1,6 +1,7 @@
 *~
 *.elc
 *.pyc
+.#*
 *#*#
 commit.txt
 # Byte-compiled / optimized / DLL files
