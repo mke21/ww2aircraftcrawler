@@ -34,7 +34,6 @@ class ParseIndexPage(ParsePageBase):
     """
     parse index page
     """
-    
     def content(self):
         """
         will list all threads on this page with url
@@ -54,7 +53,15 @@ class ParseThreadPage(ParsePageBase):
     """
 
     def convert_datetime(self, message):
-        m = message.find('span', class_='DateTime').string
+        try:
+            m = message.find('span', class_='DateTime').string
+        except AttributeError:
+            m = False
+        if not m:
+            m = message.find('abbr', class_='DateTime')['data-datestring']
+        if not m:
+            m = "jan 01, 1900"
+        
         return datetime.strptime(m, '%b %d, %Y')
     
     def get_text(self, message):
