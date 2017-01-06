@@ -17,7 +17,7 @@ def walk_index(base, part):
         page_content = requests.get(url).text
         parser = ParseIndexPage(page_content)
         for c in parser.content():
-            yield base+c['href']
+            yield base, c['href']
         try:
             url = base + parser.next
         except TypeError:
@@ -37,7 +37,6 @@ def walk_thread(base, part):
         result += [i for i in parser.content()]
         try:
             url = base + parser.next
-            print ( url)
         except TypeError:
             break
     return result
