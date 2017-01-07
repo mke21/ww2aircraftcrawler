@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from re import compile as c
 
-fighters = [
+aircraft = [
 ['Avia B-534', c(r'b(| |-|\.)534')],
 ['Avia BH-33', c('r,bh(| |-|\.)33')],
 ['Armstrong Whitworth Scimitar', c(r'scimitar')],
