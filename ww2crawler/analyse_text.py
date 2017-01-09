@@ -9,7 +9,7 @@ def make_aircraftlist(text):
         for key, regex in ac
         if regex.search(text)
         ]
-    return result
+    return list(set(result)) # to make sure there are no doubles
         
 
 def getdate(d):
